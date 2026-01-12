@@ -3,13 +3,15 @@ package com.fitness.backend.Model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "students") // PostgreSQL table name
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // Unique ID for each student
+    // Unique ID (auto-increment in PostgreSQL)
 
+    @Column(nullable = false)
     private String name;
     // Student name
 
@@ -20,28 +22,29 @@ public class Student {
     // V-Sit reach distance (cm)
 
     private int agilityTime;
-    // 100m shuttle run time (seconds)
+    // Shuttle run time (seconds)
 
     private double speedTime;
     // 30m sprint time (seconds)
 
     private int strengthCount;
-    // Number of abdomen sit-ups
+    // Sit-ups count
 
     private double powerDistance;
-    // Standing long jump distance (meters)
+    // Long jump distance (meters)
 
     private int totalPoints;
-    // Sum of points from all 6 tests
+    // Sum of all test points
 
     private double percentage;
     // (totalPoints / 150) * 100
 
     private int rank;
-    // Overall rank among all students
+    // Overall ranking
 
-    // Getters and Setters
+    // Getters & Setters (unchanged)
     public Long getId() { return id; }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
